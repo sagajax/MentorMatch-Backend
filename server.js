@@ -6,7 +6,11 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://mentormatching.netlify.app',  // Allow mentormatching.netlify.app to connect
+  credentials: true  // Allow cookies and credentials
+}));
+
 app.use(express.json());
 
 // Routes
